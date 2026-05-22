@@ -1,0 +1,74 @@
+/* Shared preview shell for design-system cards.
+   Each card is a small specimen, 700px wide by default,
+   shown on a soft surface so the brand colours pop. */
+
+@import url("../colors_and_type.css");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FAF7F3;
+  color: var(--ez-fg);
+  font-family: var(--ez-font-body);
+}
+
+.card {
+  width: 700px;
+  background: var(--ez-white);
+  border: var(--ez-border);
+  border-radius: var(--ez-radius-lg);
+  padding: var(--ez-space-6);
+  box-shadow: var(--ez-shadow-1);
+  box-sizing: border-box;
+}
+
+.row  { display: flex; align-items: center; gap: var(--ez-space-3); flex-wrap: wrap; }
+.col  { display: flex; flex-direction: column; gap: var(--ez-space-3); }
+.grow { flex: 1; }
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--ez-radius-md);
+  overflow: hidden;
+  border: var(--ez-border);
+  flex: 1;
+  min-width: 0;
+}
+.swatch .chip { height: 72px; }
+.swatch .meta {
+  padding: var(--ez-space-2) var(--ez-space-3);
+  background: var(--ez-white);
+}
+.swatch .name {
+  font-family: var(--ez-font-display);
+  font-size: var(--ez-fs-xs);
+  letter-spacing: var(--ez-tracking-wider);
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  margin: 0;
+}
+.swatch .hex {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: var(--ez-fg-muted);
+  margin-top: 2px;
+}
+
+.token {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: var(--ez-fg-muted);
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px var(--ez-space-2);
+  border-radius: var(--ez-radius-pill);
+  background: var(--ez-tint-orange);
+  color: var(--ez-orange);
+  font-family: var(--ez-font-display);
+  font-size: 10px;
+  letter-spacing: var(--ez-tracking-wider);
+  text-transform: uppercase;
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explorazone - Design System Specimens</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { background: #FAF7F3; padding: 32px; }
+    header { max-width: 1200px; margin: 0 auto 32px; }
+    header p { color: var(--ez-fg-muted); max-width: 680px; }
+    .group { max-width: 1200px; margin: 0 auto 48px; }
+    .group h2 { color: var(--ez-fg); margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+    .card-wrap {
+      background: #fff;
+      border: 1px solid var(--ez-keyline);
+      border-radius: var(--ez-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--ez-shadow-1);
+    }
+    .card-wrap iframe { width: 100%; height: 240px; border: 0; display: block; background: #FAF7F3; }
+    .card-wrap .label {
+      padding: 12px 16px;
+      font-family: var(--ez-font-display);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ez-fg-muted);
+      border-top: 1px solid var(--ez-keyline);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EXPLORAZONE - Design System Specimens</h1>
+    <p class="ez-body">Twenty preview cards covering colour, typography, spacing, components, and brand. Open <code>../README.md</code> for the brand rules behind each card. Wordmark and emblems must be placed as supplied SVGs once they land in <code>../assets/logos/</code>.</p>
+  </header>
+
+  <section class="group">
+    <h2 class="ez-heading">Colors</h2>
+    <div class="grid">
+      <div class="card-wrap"><iframe src="colors-primary.html"></iframe><div class="label">Primary palette</div></div>
+      <div class="card-wrap"><iframe src="colors-text-maroon.html"></iframe><div class="label">Text - maroon pair</div></div>
+      <div class="card-wrap"><iframe src="colors-accent-green.html"></iframe><div class="label">Accent green pair</div></div>
+      <div class="card-wrap"><iframe src="colors-context.html"></iframe><div class="label">Context pairing rules</div></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="ez-heading">Type</h2>
+    <div class="grid">
+      <div class="card-wrap"><iframe src="type-logotype.html"></iframe><div class="label">Logotype (Astrii)</div></div>
+      <div class="card-wrap"><iframe src="type-display.html"></iframe><div class="label">Display (FF Clan Pro Black)</div></div>
+      <div class="card-wrap"><iframe src="type-body.html"></iframe><div class="label">Body (Inter)</div></div>
+      <div class="card-wrap"><iframe src="type-scale.html"></iframe><div class="label">Type scale</div></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="ez-heading">Spacing</h2>
+    <div class="grid">
+      <div class="card-wrap"><iframe src="spacing.html"></iframe><div class="label">Spacing tokens</div></div>
+      <div class="card-wrap"><iframe src="radii.html"></iframe><div class="label">Corner radii</div></div>
+      <div class="card-wrap"><iframe src="shadows.html"></iframe><div class="label">Elevation / shadows</div></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="ez-heading">Components</h2>
+    <div class="grid">
+      <div class="card-wrap"><iframe src="components-buttons.html"></iframe><div class="label">Buttons</div></div>
+      <div class="card-wrap"><iframe src="components-cards.html"></iframe><div class="label">Cards</div></div>
+      <div class="card-wrap"><iframe src="components-form.html"></iframe><div class="label">Form inputs</div></div>
+      <div class="card-wrap"><iframe src="components-continuity.html"></iframe><div class="label">Continuity bar (rebrand window)</div></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="ez-heading">Brand</h2>
+    <div class="grid">
+      <div class="card-wrap"><iframe src="brand-lockup-orange.html"></iframe><div class="label">Lockup - orange field</div></div>
+      <div class="card-wrap"><iframe src="brand-lockup-white.html"></iframe><div class="label">Lockup - white keyline</div></div>
+      <div class="card-wrap"><iframe src="brand-emblem.html"></iframe><div class="label">Emblem - square / pattern</div></div>
+      <div class="card-wrap"><iframe src="brand-emblem-circle.html"></iframe><div class="label">Emblem - circle (favicon)</div></div>
+      <div class="card-wrap"><iframe src="brand-tone.html"></iframe><div class="label">Voice and tone</div></div>
+    </div>
+  </section>
+</body>
+</html>
