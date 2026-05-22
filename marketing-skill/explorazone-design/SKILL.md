@@ -1,6 +1,6 @@
 ---
 name: explorazone-design
-description: Use this skill to generate well-branded interfaces and assets for EXPLORAZONE, the Norwich interactive science centre (operated by Coreaxis2 Ltd, mid-rebrand from "Exploring Science"). Use for production work or throwaway prototypes, mocks, decks, web pages, signage call-outs, school comms, and birthday-party collateral. Contains brand guidelines, colour and type tokens, and 20 preview specimens covering colour, type, spacing, components, and brand. Font TTFs, logo SVG/PNG assets, and the marketing-site UI kit are referenced but not yet bundled - see CAVEATS in README.md.
+description: Use this skill to generate well-branded interfaces and assets for EXPLORAZONE, the Norwich interactive science centre (operated by Coreaxis2 Ltd, mid-rebrand from "Exploring Science"). Use for production work or throwaway prototypes, mocks, decks, web pages, signage call-outs, school comms, and birthday-party collateral. Contains essential brand guidelines, colour and type tokens, the official wordmark + emblem SVGs/PNGs, the Astrii and FF Clan Pro Black fonts, ready-to-use components, and a click-thru marketing-site UI kit.
 user-invocable: true
 ---
 

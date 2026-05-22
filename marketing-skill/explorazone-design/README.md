@@ -165,21 +165,3 @@ When generating any Explorazone surface, do all of the following:
 ---
 
 *Built 15 May 2026 against the brand-system-starter v1 and Khalil's brand pack. Body face Inter is a placeholder; flag any work that depends on the final body face for confirmation.*
-
-## CAVEATS / install state
-
-This skill was installed from the Claude Design handoff bundle on 22 May 2026. The following items are **referenced by SKILL.md and README.md but were not present in the bundle**, and need to be dropped in before the skill is fully usable:
-
-| Missing path | What it is | Where to source from |
-|---|---|---|
-| `assets/fonts/Astrii.ttf` | Wordmark face (logotype only) | `uploads/ASTRII_.TTF` in the original project |
-| `assets/fonts/FFClanProBlk.ttf` | Display face (headlines, buttons, eyebrows) | `uploads/FFClanProBlk.TTF` in the original project |
-| `assets/logos/lockup-orange-field.svg` (+ `.png`) | Reversed wordmark on orange field | `uploads/Logo_Logo_01.svg`, `uploads/EXPLORAZONE-ORANGE.png` |
-| `assets/logos/lockup-white-keyline.svg` (+ `.png`) | Orange wordmark on white field with 2px orange keyline | `uploads/Logo_Logo_02.svg`, `uploads/EXPLORAZONE-WHITE.png` |
-| `assets/logos/emblem-orange-square.svg` | Pixel emblem on filled orange square | `uploads/Logo_Emblem_01.svg` |
-| `assets/logos/emblem-pattern-only.svg` | Emblem pattern, transparent background | `uploads/Logo_Emblem_02.svg` |
-| `assets/logos/emblem-orange-circle.svg` | App icon / favicon, orange circle | `uploads/Logo_ Rounded Emblem_01.svg` |
-| `assets/logos/emblem-white-circle.svg` | App icon / favicon, white circle | `uploads/Logo_Rounded Emblem_02.svg` |
-| `ui_kits/marketing-site/` | Click-thru recreation (home + tickets + schools) | Not in bundle; rebuild against the rules above when needed |
-
-Until the fonts land, preview cards fall back to the stack defined in `colors_and_type.css` (`Helvetica Neue` / `Arial Black` for display, `Inter` from Google Fonts for body). The wordmark must still be placed as the supplied SVG once available - never re-typed.
