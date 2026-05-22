@@ -1,0 +1,872 @@
+/* =========================================================
+   marketing-site - kit-specific styles on top of foundations
+   ========================================================= */
+
+@import url("../../colors_and_type.css");
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ez-white);
+  color: var(--ez-fg);
+  font-family: var(--ez-font-body);
+  font-size: var(--ez-fs-base);
+  line-height: var(--ez-leading-normal);
+}
+
+a { color: inherit; }
+
+/* ---------------------------------------------------------
+   Top bar
+   --------------------------------------------------------- */
+
+.mk-topbar {
+  background: var(--ez-orange);
+  color: #491211;
+  font-family: var(--ez-font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mk-topbar > * { min-width: 0; }
+.mk-topbar .mk-formerly { overflow: hidden; text-overflow: ellipsis; }
+
+.mk-topbar .mk-formerly {
+  color: #491211;
+}
+
+.mk-topbar .mk-meta {
+  color: #491211;
+  opacity: 0.85;
+  display: flex;
+  gap: 16px;
+}
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+
+.mk-header {
+  background: #fff;
+  border-bottom: 1px solid var(--ez-keyline);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.mk-header .mk-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.mk-nav {
+  display: flex;
+  gap: 28px;
+  margin-left: 16px;
+}
+
+.mk-nav a {
+  font-family: var(--ez-font-display);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.mk-nav a.is-current {
+  border-bottom-color: var(--ez-orange);
+  color: var(--ez-orange);
+}
+
+.mk-nav a:hover {
+  color: var(--ez-orange);
+}
+
+.mk-header-right { margin-left: auto; display: flex; gap: 12px; align-items: center; }
+
+/* ---------------------------------------------------------
+   Button system - reused everywhere
+   --------------------------------------------------------- */
+
+.mk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-family: var(--ez-font-display);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter var(--ez-dur-fast) var(--ez-ease), transform var(--ez-dur-fast) var(--ez-ease);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mk-btn:hover  { filter: brightness(1.06); }
+.mk-btn:active { transform: translateY(1px); }
+
+.mk-btn.primary   { background: var(--ez-orange); color: #fff; }
+.mk-btn.secondary { background: #fff; color: var(--ez-orange); border: 2px solid var(--ez-orange); padding: 10px 20px; }
+.mk-btn.accent    { background: var(--ez-green-on-white); color: var(--ez-maroon-on-white); }
+.mk-btn.ghost     { background: transparent; color: var(--ez-fg); padding: 12px 0; }
+
+.mk-btn.lg { padding: 16px 28px; font-size: 16px; }
+.mk-btn.sm { padding: 8px 14px;  font-size: 12px; }
+
+/* On the orange field, primary flips to white */
+.mk-on-orange .mk-btn.primary { background: #fff; color: var(--ez-orange); }
+.mk-on-orange .mk-btn.secondary { background: transparent; color: #fff; border-color: #fff; }
+
+/* ---------------------------------------------------------
+   Hero
+   --------------------------------------------------------- */
+
+.mk-hero {
+  background: var(--ez-orange);
+  color: #491211;
+  padding: 80px 32px 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mk-hero .mk-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.mk-hero .mk-hero-eyebrow {
+  font-family: var(--ez-font-display);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #491211;
+  margin: 0 0 18px;
+}
+
+.mk-hero h1 {
+  font-family: var(--ez-font-display);
+  font-weight: 900;
+  font-size: clamp(56px, 8vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 24px;
+  max-width: 14ch;
+}
+
+.mk-hero h1 .accent { color: #99CC67; }
+
+.mk-hero p.lede {
+  max-width: 56ch;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #491211;
+  margin: 0 0 32px;
+}
+
+.mk-hero .mk-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* decorative emblem in hero bg */
+.mk-hero .mk-hero-emblem {
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 520px;
+  height: 520px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   Section
+   --------------------------------------------------------- */
+
+.mk-section {
+  padding: 80px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mk-section.tight { padding: 56px 32px; }
+
+.mk-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.mk-eyebrow {
+  font-family: var(--ez-font-display);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ez-orange);
+  margin: 0 0 10px;
+}
+
+.mk-section-head h2 {
+  font-family: var(--ez-font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  margin: 0;
+  max-width: 18ch;
+}
+
+.mk-section-head p {
+  max-width: 44ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ez-fg);
+}
+
+/* ---------------------------------------------------------
+   Stats strip
+   --------------------------------------------------------- */
+
+.mk-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--ez-keyline);
+  border-radius: 16px;
+  padding: 8px;
+  margin-top: -56px;
+  position: relative;
+  z-index: 3;
+  box-shadow: var(--ez-shadow-3);
+}
+
+.mk-stat {
+  padding: 24px 20px;
+  border-radius: 12px;
+}
+
+.mk-stat + .mk-stat { border-left: 1px solid var(--ez-keyline); border-radius: 0; }
+
+.mk-stat .n {
+  display: block;
+  font-family: var(--ez-font-display);
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ez-orange);
+}
+
+.mk-stat .l {
+  display: block;
+  font-family: var(--ez-font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  margin-top: 8px;
+}
+
+/* ---------------------------------------------------------
+   Attraction card grid
+   --------------------------------------------------------- */
+
+.mk-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mk-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--ez-keyline);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform var(--ez-dur-base) var(--ez-ease), box-shadow var(--ez-dur-base) var(--ez-ease);
+}
+
+.mk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ez-shadow-3);
+}
+
+.mk-card .mk-card-img {
+  aspect-ratio: 4/3;
+  background-color: #561F1C;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.mk-card .mk-card-img .mk-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.92);
+  color: var(--ez-orange);
+  font-family: var(--ez-font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.mk-card-body { padding: 20px 22px 24px; }
+
+.mk-card-body h3 {
+  font-family: var(--ez-font-display);
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  margin: 0 0 8px;
+}
+
+.mk-card-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ez-fg);
+}
+
+.mk-card-foot {
+  margin-top: auto;
+  padding: 0 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ez-font-display);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ez-orange);
+}
+
+/* image placeholders - keyline + label so we never ship empty boxes */
+.mk-img-placeholder {
+  background: linear-gradient(135deg, #ED4724, #c0381a);
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,0.45);
+  font-family: var(--ez-font-display);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Different attraction images get different brand-tinted gradients */
+.mk-img-1 { background: linear-gradient(135deg, #ED4724 0%, #b13017 100%); }
+.mk-img-2 { background: linear-gradient(135deg, #561F1C 0%, #2a1110 100%); }
+.mk-img-3 { background: linear-gradient(135deg, #A7CF38 0%, #74940d 100%); }
+.mk-img-4 { background: linear-gradient(135deg, #491211 0%, #2a1110 100%); }
+.mk-img-5 { background: linear-gradient(135deg, #ED4724 0%, #f6814c 100%); }
+.mk-img-6 { background: linear-gradient(135deg, #99CC67 0%, #5a7a08 100%); }
+
+/* ---------------------------------------------------------
+   Promo (orange strip)
+   --------------------------------------------------------- */
+
+.mk-promo {
+  background: var(--ez-orange);
+  color: #491211;
+  padding: 64px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mk-promo-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.mk-promo h2 {
+  font-family: var(--ez-font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.mk-promo p {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #491211;
+  max-width: 50ch;
+}
+
+.mk-promo .mk-promo-card {
+  background: #fff;
+  color: var(--ez-fg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--ez-shadow-3);
+}
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+.mk-footer {
+  background: #2a1110;
+  color: #fff;
+  padding: 64px 32px 32px;
+}
+
+.mk-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.mk-footer h4 {
+  font-family: var(--ez-font-display);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ED4724;
+  margin: 0 0 16px;
+}
+
+.mk-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  padding: 4px 0;
+  opacity: 0.85;
+}
+
+.mk-footer a:hover { opacity: 1; color: #A7CF38; }
+
+.mk-footer .mk-foot-logo {
+  width: 240px;
+  margin-bottom: 16px;
+}
+
+.mk-footer .mk-foot-meta {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ---------------------------------------------------------
+   Tickets / Schools page bits
+   --------------------------------------------------------- */
+
+.mk-page-hero {
+  background: #FAF7F3;
+  padding: 64px 32px;
+  border-bottom: 1px solid var(--ez-keyline);
+}
+
+/* Brand-coloured variant of the page hero. Use on revenue surfaces
+   (tickets, parties) to lean into the orange brand voice. */
+.mk-page-hero.brand {
+  background: var(--ez-orange);
+  border-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+.mk-page-hero.brand h1 { color: #fff; }
+.mk-page-hero.brand p  { color: #491211; }
+.mk-page-hero.brand .mk-crumbs { color: #491211; }
+.mk-page-hero.brand .mk-crumbs a { color: #491211; opacity: 0.7; }
+.mk-page-hero.brand .mk-crumbs a:after { color: rgba(73,18,17,0.4); }
+.mk-page-hero.brand .mk-hero-emblem {
+  position: absolute;
+  right: -120px;
+  top: -80px;
+  width: 460px;
+  height: 460px;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+/* Green badge strip - rides under the hero to signal a low-friction
+   value moment ("Under 3s go free") on coloured pages. */
+.mk-badge-strip {
+  background: var(--ez-green-on-white);
+  color: var(--ez-maroon-on-white);
+  padding: 14px 32px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: var(--ez-font-display);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mk-badge-strip span { display: inline-flex; align-items: center; gap: 8px; }
+.mk-badge-strip .dot { width: 6px; height: 6px; background: var(--ez-maroon-on-white); border-radius: 50%; opacity: 0.4; }
+
+.mk-page-hero-inner { max-width: 1200px; margin: 0 auto; }
+
+.mk-page-hero h1 {
+  font-family: var(--ez-font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  margin: 12px 0 16px;
+  max-width: 18ch;
+}
+
+.mk-page-hero p {
+  max-width: 54ch;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ez-fg);
+  margin: 0;
+}
+
+.mk-crumbs {
+  font-family: var(--ez-font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ez-orange);
+  margin: 0 0 4px;
+}
+
+.mk-crumbs a { color: var(--ez-fg-muted); text-decoration: none; margin-right: 8px; }
+.mk-crumbs a:after { content: " /"; margin-left: 8px; color: var(--ez-fg-subtle); }
+
+/* Ticket table */
+
+.mk-ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mk-ticket {
+  border: 1px solid var(--ez-keyline);
+  border-radius: 16px;
+  padding: 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.mk-ticket.featured {
+  border: 0;
+  background: var(--ez-orange);
+  color: #491211;
+  position: relative;
+  transform: translateY(-8px);
+  box-shadow: var(--ez-shadow-3);
+}
+
+.mk-ticket.featured h3   { color: #fff; }
+.mk-ticket.featured .mk-price { color: #fff; }
+.mk-ticket.featured .mk-price small { color: #491211; }
+.mk-ticket.featured ul   { color: #491211; }
+.mk-ticket.featured li:before { color: #fff; }
+.mk-ticket.featured .mk-btn.primary { background: #fff; color: var(--ez-orange); }
+.mk-ticket.featured .mk-btn.primary:hover { background: #FAF7F3; }
+
+.mk-ticket.featured:before {
+  content: "Most booked";
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--ez-maroon-on-orange);
+  color: #fff;
+  font-family: var(--ez-font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Coloured background panel used on the tickets page to hold the
+   opening-times table + enquiry form. Off-white maroon-tinted, with a
+   subtle accent stripe at the top so the section reads as one block. */
+.mk-panel {
+  background: #FAF7F3;
+  border: 1px solid var(--ez-keyline);
+  border-radius: 24px;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.mk-panel:before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--ez-orange) 0%, var(--ez-orange) 70%, var(--ez-green-on-white) 70%, var(--ez-green-on-white) 100%);
+}
+
+/* Compact opening-times table card inside the panel. */
+.mk-hours-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--ez-keyline);
+}
+
+/* Bottom call-out banner - dark maroon brand surface */
+.mk-callout {
+  background: var(--ez-maroon-on-white);
+  color: #fff;
+  padding: 56px 48px;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.mk-callout h3 {
+  font-family: var(--ez-font-display);
+  font-size: clamp(28px, 3vw, 40px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.mk-callout p { margin: 0; color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.5; }
+.mk-callout .mk-callout-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.mk-callout .mk-btn.primary { background: var(--ez-orange); color: #fff; }
+.mk-callout .mk-btn.secondary { background: transparent; color: #fff; border-color: #fff; }
+
+@media (max-width: 920px) {
+  .mk-callout { grid-template-columns: 1fr; }
+  .mk-callout .mk-callout-actions { justify-content: flex-start; }
+  .mk-panel { padding: 28px; }
+}
+
+.mk-ticket h3 {
+  font-family: var(--ez-font-display);
+  font-size: 18px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  color: var(--ez-fg);
+}
+
+.mk-ticket .mk-price {
+  font-family: var(--ez-font-display);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ez-orange);
+  letter-spacing: -0.02em;
+  margin: 12px 0 4px;
+}
+
+.mk-ticket .mk-price small {
+  font-family: var(--ez-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ez-fg-muted);
+}
+
+.mk-ticket ul {
+  list-style: none;
+  margin: 16px 0 24px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--ez-fg);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mk-ticket li:before {
+  content: "✓ ";
+  color: var(--ez-green-on-white);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.mk-ticket .mk-btn { margin-top: auto; align-self: flex-start; }
+
+/* Schools split layout */
+
+.mk-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.mk-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mk-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ez-fg);
+}
+
+.mk-checklist li:before {
+  content: "";
+  flex: 0 0 8px;
+  height: 8px;
+  margin-top: 10px;
+  background: var(--ez-orange);
+  border-radius: 2px;
+}
+
+.mk-quote {
+  background: #FAF7F3;
+  border-left: 4px solid var(--ez-orange);
+  padding: 24px 28px;
+  border-radius: 0 12px 12px 0;
+  margin: 32px 0;
+}
+
+.mk-quote p {
+  font-family: var(--ez-font-display);
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ez-fg);
+  margin: 0 0 12px;
+}
+
+.mk-quote cite {
+  font-style: normal;
+  font-family: var(--ez-font-body);
+  font-size: 13px;
+  color: var(--ez-fg-muted);
+}
+
+/* form */
+
+.mk-form {
+  background: #fff;
+  border: 1px solid var(--ez-keyline);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--ez-shadow-2);
+}
+
+.mk-form h3 {
+  font-family: var(--ez-font-display);
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+  margin: 0 0 18px;
+}
+
+.mk-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+
+.mk-field label {
+  font-family: var(--ez-font-display);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ez-fg);
+}
+
+.mk-field input, .mk-field select, .mk-field textarea {
+  font-family: var(--ez-font-body);
+  font-size: 15px;
+  padding: 11px 14px;
+  border: 1px solid var(--ez-keyline-strong);
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: var(--ez-fg);
+  transition: border-color var(--ez-dur-fast), box-shadow var(--ez-dur-fast);
+}
+
+.mk-field input:focus, .mk-field select:focus, .mk-field textarea:focus {
+  border-color: var(--ez-orange);
+  box-shadow: 0 0 0 3px rgba(237,71,36,0.18);
+}
+
+.mk-field .mk-hint {
+  font-size: 12px;
+  color: var(--ez-fg-muted);
+}
+
+/* responsive */
+@media (max-width: 920px) {
+  .mk-grid-3, .mk-ticket-grid { grid-template-columns: 1fr 1fr; }
+  .mk-split, .mk-promo-inner { grid-template-columns: 1fr; }
+  .mk-footer-inner { grid-template-columns: 1fr 1fr; }
+  .mk-topbar .mk-meta span:first-child { display: none; }
+}
+
+@media (max-width: 600px) {
+  .mk-grid-3, .mk-ticket-grid, .mk-stats { grid-template-columns: 1fr 1fr; }
+  .mk-nav { display: none; }
+  .mk-topbar .mk-meta { display: none; }
+}

@@ -1,0 +1,256 @@
+/* =========================================================
+   EXPLORAZONE - Foundations (colour + type)
+   Single source of truth for Claude Design.
+   Import once at the top of any HTML output.
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   Web fonts
+   - Astrii: pixel-grid display, RESERVED for the wordmark.
+   - FF Clan Pro Black: headlines + signage call-outs only.
+   - Inter: body face placeholder (loaded via Google Fonts) -
+     swap when Khalil confirms the official body face.
+   ----------------------------------------------------------- */
+
+@font-face {
+  font-family: "Astrii";
+  src: url("assets/fonts/Astrii.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FF Clan Pro Black";
+  src: url("assets/fonts/FFClanProBlk.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* =====================================================
+     COLOUR - raw palette
+     The brand ships SIX hex values. Two of them are
+     context-paired (the maroon and green each have
+     "on orange" and "on white" variants).
+     ===================================================== */
+
+  --ez-orange:                #ED4724;  /* primary brand */
+  --ez-white:                 #FFFFFF;
+
+  --ez-maroon-on-orange:      #491211;  /* darker, sits on orange */
+  --ez-maroon-on-white:       #561F1C;  /* lighter, sits on white - default body */
+
+  --ez-green-on-orange:       #99CC67;  /* softer, sits on orange */
+  --ez-green-on-white:        #A7CF38;  /* sharper, sits on white - default digital accent */
+
+  /* =====================================================
+     COLOUR - semantic tokens (digital default = white field)
+     Use these names in components. Only re-map them when
+     you flip a whole surface to the orange brand field.
+     ===================================================== */
+
+  --ez-bg:                    var(--ez-white);
+  --ez-bg-brand:              var(--ez-orange);
+  --ez-fg:                    var(--ez-maroon-on-white);   /* default body text */
+  --ez-fg-muted:              rgba(86, 31, 28, 0.64);
+  --ez-fg-subtle:             rgba(86, 31, 28, 0.40);
+  --ez-fg-inverse:            var(--ez-white);
+  --ez-accent:                var(--ez-green-on-white);
+  --ez-brand:                 var(--ez-orange);
+
+  /* Lines, surfaces, keylines */
+  --ez-keyline:               rgba(73, 18, 17, 0.12);
+  --ez-keyline-strong:        rgba(73, 18, 17, 0.24);
+  --ez-keyline-brand:         var(--ez-orange);
+  --ez-tint-orange:           rgba(237, 71, 36, 0.08);
+  --ez-tint-orange-strong:    rgba(237, 71, 36, 0.18);
+
+  /* =====================================================
+     TYPE - families
+     ===================================================== */
+
+  --ez-font-logotype:   "Astrii", "Courier New", monospace;
+  --ez-font-display:    "FF Clan Pro Black", "Helvetica Neue", "Arial Black", sans-serif;
+  --ez-font-body:       "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  /* =====================================================
+     TYPE - scale
+     16px minimum on digital body (SEND accessibility).
+     ===================================================== */
+
+  --ez-fs-xs:    12px;
+  --ez-fs-sm:    14px;
+  --ez-fs-base:  16px;
+  --ez-fs-lg:    20px;
+  --ez-fs-xl:    28px;
+  --ez-fs-2xl:   40px;
+  --ez-fs-3xl:   56px;
+  --ez-fs-4xl:   72px;
+
+  --ez-fw-regular: 400;
+  --ez-fw-medium:  500;
+  --ez-fw-bold:    700;
+  --ez-fw-black:   900;
+
+  --ez-tracking-tight:  -0.02em;
+  --ez-tracking-normal: 0;
+  --ez-tracking-wide:   0.04em;
+  --ez-tracking-wider:  0.08em;
+
+  --ez-leading-tight:  1.05;
+  --ez-leading-snug:   1.2;
+  --ez-leading-normal: 1.5;
+
+  /* =====================================================
+     SPACING - 4px base grid
+     ===================================================== */
+
+  --ez-space-1:  4px;
+  --ez-space-2:  8px;
+  --ez-space-3:  12px;
+  --ez-space-4:  16px;
+  --ez-space-5:  20px;
+  --ez-space-6:  24px;
+  --ez-space-8:  32px;
+  --ez-space-10: 40px;
+  --ez-space-12: 48px;
+  --ez-space-16: 64px;
+  --ez-space-20: 80px;
+  --ez-space-24: 96px;
+
+  /* =====================================================
+     RADII
+     Square + soft. Keep buttons and inputs at md (8px),
+     cards/surfaces at lg (16px). Never go bigger than 16
+     except for pill controls.
+     ===================================================== */
+
+  --ez-radius-none: 0;
+  --ez-radius-sm:   4px;
+  --ez-radius-md:   8px;
+  --ez-radius-lg:   16px;
+  --ez-radius-xl:   24px;
+  --ez-radius-pill: 999px;
+
+  /* =====================================================
+     ELEVATION - shadows
+     Maroon-tinted, low spread. Avoid blue/black shadows.
+     ===================================================== */
+
+  --ez-shadow-1: 0 1px 2px  rgba(73, 18, 17, 0.06);
+  --ez-shadow-2: 0 2px 6px  rgba(73, 18, 17, 0.08), 0 1px 2px rgba(73, 18, 17, 0.04);
+  --ez-shadow-3: 0 8px 24px rgba(73, 18, 17, 0.12), 0 2px 4px rgba(73, 18, 17, 0.06);
+  --ez-shadow-4: 0 16px 40px rgba(73, 18, 17, 0.16);
+
+  /* =====================================================
+     BORDERS
+     ===================================================== */
+
+  --ez-border:                1px solid var(--ez-keyline);
+  --ez-border-strong:         1px solid var(--ez-keyline-strong);
+  --ez-keyline-orange:        2px solid var(--ez-orange);
+  --ez-keyline-orange-thick:  4px solid var(--ez-orange);
+
+  /* =====================================================
+     MOTION
+     Brisk, friendly, never bouncy. Public-facing UI for
+     families - feel responsive, not theatrical.
+     ===================================================== */
+
+  --ez-ease:      cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ez-ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ez-dur-fast:   120ms;
+  --ez-dur-base:   200ms;
+  --ez-dur-slow:   360ms;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ez-bg);
+  color: var(--ez-fg);
+  font-family: var(--ez-font-body);
+  font-size: var(--ez-fs-base);
+  line-height: var(--ez-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   SEMANTIC TYPE - elements map to display/body roles
+   ========================================================= */
+
+.ez-display-1, h1 {
+  font-family: var(--ez-font-display);
+  font-weight: var(--ez-fw-black);
+  font-size: var(--ez-fs-3xl);
+  line-height: var(--ez-leading-tight);
+  letter-spacing: var(--ez-tracking-tight);
+  text-transform: uppercase;
+  margin: 0 0 var(--ez-space-4);
+  color: var(--ez-fg);
+}
+
+.ez-display-2, h2 {
+  font-family: var(--ez-font-display);
+  font-weight: var(--ez-fw-black);
+  font-size: var(--ez-fs-2xl);
+  line-height: var(--ez-leading-tight);
+  letter-spacing: var(--ez-tracking-tight);
+  text-transform: uppercase;
+  margin: 0 0 var(--ez-space-3);
+  color: var(--ez-fg);
+}
+
+.ez-heading, h3 {
+  font-family: var(--ez-font-display);
+  font-weight: var(--ez-fw-black);
+  font-size: var(--ez-fs-xl);
+  line-height: var(--ez-leading-snug);
+  letter-spacing: var(--ez-tracking-normal);
+  text-transform: uppercase;
+  margin: 0 0 var(--ez-space-2);
+  color: var(--ez-fg);
+}
+
+.ez-eyebrow {
+  font-family: var(--ez-font-display);
+  font-size: var(--ez-fs-xs);
+  letter-spacing: var(--ez-tracking-wider);
+  text-transform: uppercase;
+  color: var(--ez-brand);
+}
+
+.ez-label {
+  font-family: var(--ez-font-display);
+  font-size: var(--ez-fs-sm);
+  letter-spacing: var(--ez-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ez-fg);
+}
+
+.ez-body { font-family: var(--ez-font-body); font-size: var(--ez-fs-base); }
+.ez-small { font-size: var(--ez-fs-sm); }
+.ez-xs    { font-size: var(--ez-fs-xs); }
+
+.ez-wordmark {
+  font-family: var(--ez-font-logotype);
+  text-transform: uppercase;
+  letter-spacing: var(--ez-tracking-wide);
+  color: var(--ez-orange);
+}
+
+/* On the orange field, the semantic tokens flip. */
+.ez-surface-orange {
+  --ez-bg:        var(--ez-orange);
+  --ez-fg:        var(--ez-maroon-on-orange);
+  --ez-accent:    var(--ez-green-on-orange);
+  --ez-keyline:   rgba(255, 255, 255, 0.24);
+}
