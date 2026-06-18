@@ -61,19 +61,24 @@ is supplied but `ads` is not.
 | Delivery contribution | £745.33 | £1,021.10 |
 | In-store sales (inc VAT) | £2,072.67 | £1,526.05 |
 | In-store contribution (67%) | £1,388.69 | £1,022.45 |
-| Total sales (inc VAT) | £6,957.70 | £7,920.08 |
-| Contribution before labour | £2,134.02 | £2,043.55 |
-| Labour | 233 hrs = £2,330 (33.5%) | 221 hrs = £2,210 (27.9%) |
-| **Contribution after labour** | **-£195.98** | **-£166.45** |
+| Kiosk sales (inc VAT) | £430.00 | £277.00 |
+| Kiosk contribution (67%) | £288.10 | £185.59 |
+| Total sales (inc VAT) | £7,387.70 | £8,197.08 |
+| Contribution before labour | £2,422.12 | £2,229.14 |
+| Labour | 233 hrs = £2,330 (31.5%) | 221 hrs = £2,210 (27.0%) |
+| **Contribution after labour** | **£92.12** | **£19.14** |
 
 Payouts confirmed from bank transfers: w/e 07 Jun = Uber £1,195.51 + Deliveroo
 £1,161.88; w/e 14 Jun = the two "Wraps an" credits (£1,409.71 + £1,721.42).
-Labour: 233 / 221 staff hours at £10/hr. In-store from EPOS (ValueIncVAT).
+Labour: 233 / 221 staff hours at £10/hr. In-store from EPOS (ValueIncVAT);
+kiosk sales added separately (same 67% contribution, no commission).
 
 > **VAT and fixed costs are NOT in these figures.** Contribution after labour
 > is before VAT remitted to HMRC, rent, utilities, packaging and card fees.
-> Both weeks are slightly negative at this line, so once those are added the
-> operation is loss-making at current volumes - see "Reading the verdict".
+> Once the high-margin in-store and kiosk channels are included, the LIGHT-promo
+> week is the more profitable of the two: the heavy-promo week grew low-margin
+> delivery but lost higher-margin in-store and kiosk sales (apparent
+> cannibalisation), leaving it worse off after labour - see "Reading the verdict".
 
 ## Reading the promotion verdict
 

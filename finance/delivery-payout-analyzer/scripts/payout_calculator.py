@@ -74,12 +74,15 @@ def compute_period(period, royalty_rate, vat_rate, food_cost_rate):
 
     payout_pct_of_net = (payout / net) if net else 0.0
 
-    # ----- In-store (EPOS) sales: no platform commission or ads -----
+    # ----- In-store (EPOS) + kiosk sales: no platform commission or ads -----
     in_store = float(period.get("in_store_inc_vat", 0) or 0)
     in_store_food = in_store * food_cost_rate
     in_store_contribution = in_store - in_store_food
 
-    total_sales = net + in_store
+    kiosk = float(period.get("kiosk_inc_vat", 0) or 0)
+    kiosk_contribution = kiosk * (1 - food_cost_rate)
+
+    total_sales = net + in_store + kiosk
 
     # ----- Labour: cost serves both delivery and in-store -----
     if period.get("labour_cost") is not None:
@@ -94,7 +97,7 @@ def compute_period(period, royalty_rate, vat_rate, food_cost_rate):
 
     labour_pct_of_sales = (labour_cost / total_sales) if total_sales else 0.0
 
-    contribution_before_labour = contribution + in_store_contribution
+    contribution_before_labour = contribution + in_store_contribution + kiosk_contribution
     contribution_after_labour = contribution_before_labour - labour_cost
 
     return {
@@ -115,6 +118,8 @@ def compute_period(period, royalty_rate, vat_rate, food_cost_rate):
         "contribution": _money(contribution),
         "in_store_sales": _money(in_store),
         "in_store_contribution": _money(in_store_contribution),
+        "kiosk_sales": _money(kiosk),
+        "kiosk_contribution": _money(kiosk_contribution),
         "total_sales": _money(total_sales),
         "labour_hours": labour_hours,
         "labour_cost": _money(labour_cost),
@@ -186,6 +191,10 @@ def render_text(periods, comparison):
         if p["in_store_sales"]:
             lines.append(f"  In-store sales (inc VAT)   £{p['in_store_sales']:,.2f}")
             lines.append(f"  In-store contribution      £{p['in_store_contribution']:,.2f}")
+        if p["kiosk_sales"]:
+            lines.append(f"  Kiosk sales (inc VAT)      £{p['kiosk_sales']:,.2f}")
+            lines.append(f"  Kiosk contribution         £{p['kiosk_contribution']:,.2f}")
+        if p["in_store_sales"] or p["kiosk_sales"]:
             lines.append(f"  Total sales (inc VAT)      £{p['total_sales']:,.2f}")
         if p["labour_cost"]:
             hrs = f"{p['labour_hours']:g} hrs" if p["labour_hours"] is not None else "n/a"

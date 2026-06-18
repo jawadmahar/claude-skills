@@ -10,6 +10,7 @@
       "net": 4885.03,
       "actual_payout": 2357.39,
       "in_store_inc_vat": 2072.67,
+      "kiosk_inc_vat": 430,
       "labour_hours": 233,
       "labour_rate": 10
     },
@@ -19,6 +20,7 @@
       "net": 6394.03,
       "actual_payout": 3131.13,
       "in_store_inc_vat": 1526.05,
+      "kiosk_inc_vat": 277,
       "labour_hours": 221,
       "labour_rate": 10
     }
