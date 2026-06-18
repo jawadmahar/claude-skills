@@ -14,7 +14,7 @@ Wraps and Wings, Cafe UFO, Mahar Coffee Ltd).
 | **Royalty (commission)** | Platform commission, charged on **net sales**. Default 30%, plus VAT at 20%. |
 | **Ads** | Sponsored listings / platform marketing spend, plus VAT at 20%. |
 | **Payout** | The cash the business actually receives: `Net - (royalty + VAT) - (ads + VAT)`. |
-| **Contribution** | `Payout - food cost`. Profit after platform fees, ads and ingredients, **before** labour, rent and other fixed costs. Food cost defaults to 25% of net sales. |
+| **Contribution** | `Payout - food cost`. Profit after platform fees, ads and ingredients, **before** labour, rent and other fixed costs. Food cost defaults to 33% of net sales. |
 
 ## Formulae
 
@@ -23,7 +23,7 @@ promo_discount   = gross - net
 royalty_incl_vat = net * royalty_rate * (1 + vat_rate)        # default 0.30, 0.20
 ads_incl_vat     = ads * (1 + vat_rate)
 payout           = net - royalty_incl_vat - ads_incl_vat
-food_cost        = net * food_cost_rate                       # default 0.25
+food_cost        = net * food_cost_rate                       # default 0.33
 contribution     = payout - food_cost
 ```
 
@@ -53,8 +53,8 @@ is supplied but `ads` is not.
 | Royalty incl VAT | £1,758.61 | £2,301.85 |
 | Ads incl VAT (implied) | £769.03 | £961.05 |
 | Payout | £2,357.39 (48.3% of net) | £3,131.13 (49.0% of net) |
-| Food cost (est, 25%) | £1,221.26 | £1,598.51 |
-| Contribution | £1,136.13 | £1,532.62 |
+| Food cost (est, 33%) | £1,612.06 | £2,110.03 |
+| Contribution | £745.33 | £1,021.10 |
 
 Payouts confirmed from bank transfers: w/e 07 Jun = Uber £1,195.51 + Deliveroo
 £1,161.88; w/e 14 Jun = the two "Wraps an" credits (£1,409.71 + £1,721.42).

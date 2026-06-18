@@ -12,7 +12,7 @@ Metric definitions (as used across Mahar Group food businesses):
   - Promo discount   : gross - net.
   - Royalty          : platform commission, charged on NET sales (default 30%).
   - Payout           : net - (royalty + VAT on royalty) - (ads + VAT on ads).
-  - Contribution     : payout - food cost (food cost defaults to 25% of net).
+  - Contribution     : payout - food cost (food cost defaults to 33% of net).
                        This is profit after platform, ads and ingredients,
                        but BEFORE labour, rent and other fixed costs.
 
@@ -165,7 +165,7 @@ def main():
     parser.add_argument("data", nargs="?", help="JSON file with one or two periods (see assets/example_input.json)")
     parser.add_argument("--royalty-rate", type=float, default=0.30, help="Platform royalty/commission rate on net sales (default 0.30)")
     parser.add_argument("--vat-rate", type=float, default=0.20, help="VAT rate (default 0.20)")
-    parser.add_argument("--food-cost-rate", type=float, default=0.25, help="Food cost as a fraction of net sales (default 0.25)")
+    parser.add_argument("--food-cost-rate", type=float, default=0.33, help="Food cost as a fraction of net sales (default 0.33)")
     parser.add_argument("--format", choices=["text", "json"], default="text", help="Output format")
     args = parser.parse_args()
 

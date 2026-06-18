@@ -1,8 +1,8 @@
 {
-  "_comment": "UFO Food Ltd (Wraps and Wings) - Uber Eats + Deliveroo combined. Ads are reverse-engineered from the actual bank payouts. Royalty 30% on net, VAT 20%, food cost 25% of net.",
+  "_comment": "UFO Food Ltd (Wraps and Wings) - Uber Eats + Deliveroo combined. Ads are reverse-engineered from the actual bank payouts. Royalty 30% on net, VAT 20%, food cost 33% of net.",
   "royalty_rate": 0.30,
   "vat_rate": 0.20,
-  "food_cost_rate": 0.25,
+  "food_cost_rate": 0.33,
   "periods": [
     {
       "name": "Wk 1-7 Jun 2026 (light promo)",
