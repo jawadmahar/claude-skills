@@ -8,13 +8,19 @@
       "name": "Wk 1-7 Jun 2026 (light promo)",
       "gross": 5589.92,
       "net": 4885.03,
-      "actual_payout": 2357.39
+      "actual_payout": 2357.39,
+      "in_store_inc_vat": 2072.67,
+      "labour_hours": 233,
+      "labour_rate": 10
     },
     {
       "name": "Wk 8-14 Jun 2026 (heavy promo)",
       "gross": 7955.43,
       "net": 6394.03,
-      "actual_payout": 3131.13
+      "actual_payout": 3131.13,
+      "in_store_inc_vat": 1526.05,
+      "labour_hours": 221,
+      "labour_rate": 10
     }
   ]
 }

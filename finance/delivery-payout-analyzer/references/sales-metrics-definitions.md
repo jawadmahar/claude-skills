@@ -15,6 +15,10 @@ Wraps and Wings, Cafe UFO, Mahar Coffee Ltd).
 | **Ads** | Sponsored listings / platform marketing spend, plus VAT at 20%. |
 | **Payout** | The cash the business actually receives: `Net - (royalty + VAT) - (ads + VAT)`. |
 | **Contribution** | `Payout - food cost`. Profit after platform fees, ads and ingredients, **before** labour, rent and other fixed costs. Food cost defaults to 33% of net sales. |
+| **In-store sales** | EPOS sales (inc VAT, after discount). No platform commission or ads apply, so in-store contribution = `in-store sales x (1 - food cost rate)`. |
+| **Total sales** | `Delivery net + in-store sales` (inc VAT). The base for the labour-cost ratio, since labour serves both channels. |
+| **Labour cost** | `Labour hours x hourly rate` (or a direct cost). Expressed as a % of total sales. |
+| **Contribution after labour** | `Delivery contribution + in-store contribution - labour cost`. The closest figure to operating profit, but still **before** VAT remittance, rent, utilities, packaging and card fees. |
 
 ## Formulae
 
@@ -52,12 +56,24 @@ is supplied but `ads` is not.
 | Promo discount | £704.89 (12.6% of gross) | £1,561.40 (19.6% of gross) |
 | Royalty incl VAT | £1,758.61 | £2,301.85 |
 | Ads incl VAT (implied) | £769.03 | £961.05 |
-| Payout | £2,357.39 (48.3% of net) | £3,131.13 (49.0% of net) |
-| Food cost (est, 33%) | £1,612.06 | £2,110.03 |
-| Contribution | £745.33 | £1,021.10 |
+| Payout (delivery) | £2,357.39 (48.3% of net) | £3,131.13 (49.0% of net) |
+| Food cost on delivery (33%) | £1,612.06 | £2,110.03 |
+| Delivery contribution | £745.33 | £1,021.10 |
+| In-store sales (inc VAT) | £2,072.67 | £1,526.05 |
+| In-store contribution (67%) | £1,388.69 | £1,022.45 |
+| Total sales (inc VAT) | £6,957.70 | £7,920.08 |
+| Contribution before labour | £2,134.02 | £2,043.55 |
+| Labour | 233 hrs = £2,330 (33.5%) | 221 hrs = £2,210 (27.9%) |
+| **Contribution after labour** | **-£195.98** | **-£166.45** |
 
 Payouts confirmed from bank transfers: w/e 07 Jun = Uber £1,195.51 + Deliveroo
 £1,161.88; w/e 14 Jun = the two "Wraps an" credits (£1,409.71 + £1,721.42).
+Labour: 233 / 221 staff hours at £10/hr. In-store from EPOS (ValueIncVAT).
+
+> **VAT and fixed costs are NOT in these figures.** Contribution after labour
+> is before VAT remitted to HMRC, rent, utilities, packaging and card fees.
+> Both weeks are slightly negative at this line, so once those are added the
+> operation is loss-making at current volumes - see "Reading the verdict".
 
 ## Reading the promotion verdict
 

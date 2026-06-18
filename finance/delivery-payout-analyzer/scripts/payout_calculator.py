@@ -74,6 +74,29 @@ def compute_period(period, royalty_rate, vat_rate, food_cost_rate):
 
     payout_pct_of_net = (payout / net) if net else 0.0
 
+    # ----- In-store (EPOS) sales: no platform commission or ads -----
+    in_store = float(period.get("in_store_inc_vat", 0) or 0)
+    in_store_food = in_store * food_cost_rate
+    in_store_contribution = in_store - in_store_food
+
+    total_sales = net + in_store
+
+    # ----- Labour: cost serves both delivery and in-store -----
+    if period.get("labour_cost") is not None:
+        labour_cost = float(period["labour_cost"])
+        labour_hours = period.get("labour_hours")
+    elif period.get("labour_hours") is not None and period.get("labour_rate") is not None:
+        labour_hours = float(period["labour_hours"])
+        labour_cost = labour_hours * float(period["labour_rate"])
+    else:
+        labour_hours = None
+        labour_cost = 0.0
+
+    labour_pct_of_sales = (labour_cost / total_sales) if total_sales else 0.0
+
+    contribution_before_labour = contribution + in_store_contribution
+    contribution_after_labour = contribution_before_labour - labour_cost
+
     return {
         "name": name,
         "gross_sales": _money(gross),
@@ -90,6 +113,14 @@ def compute_period(period, royalty_rate, vat_rate, food_cost_rate):
         "payout_pct_of_net": round(payout_pct_of_net * 100, 1),
         "food_cost": _money(food_cost),
         "contribution": _money(contribution),
+        "in_store_sales": _money(in_store),
+        "in_store_contribution": _money(in_store_contribution),
+        "total_sales": _money(total_sales),
+        "labour_hours": labour_hours,
+        "labour_cost": _money(labour_cost),
+        "labour_pct_of_sales": round(labour_pct_of_sales * 100, 1),
+        "contribution_before_labour": _money(contribution_before_labour),
+        "contribution_after_labour": _money(contribution_after_labour),
     }
 
 
@@ -100,14 +131,22 @@ def compare_periods(base, test, food_cost_rate):
     d_promo = test["promo_discount"] - base["promo_discount"]
     d_payout = test["payout"] - base["payout"]
     d_contribution = test["contribution"] - base["contribution"]
+    d_total_sales = test["total_sales"] - base["total_sales"]
+    d_labour = test["labour_cost"] - base["labour_cost"]
+    d_contribution_after_labour = test["contribution_after_labour"] - base["contribution_after_labour"]
 
     # Payout generated per extra £1 of net sales the promotion brought in.
     payout_per_extra_net = (d_payout / d_net) if d_net else 0.0
 
-    if d_contribution > 0:
-        verdict = "BETTER OFF with the heavier promotion"
-    elif d_contribution < 0:
-        verdict = "WORSE OFF with the heavier promotion"
+    # When labour is supplied, judge on the bottom line after labour.
+    has_labour = base["labour_cost"] or test["labour_cost"]
+    decisive = d_contribution_after_labour if has_labour else d_contribution
+    basis = "contribution after labour" if has_labour else "contribution"
+
+    if decisive > 0:
+        verdict = f"BETTER OFF with the heavier promotion (on {basis})"
+    elif decisive < 0:
+        verdict = f"WORSE OFF with the heavier promotion (on {basis})"
     else:
         verdict = "NEUTRAL"
 
@@ -116,9 +155,12 @@ def compare_periods(base, test, food_cost_rate):
         "test": test["name"],
         "delta_gross": _money(d_gross),
         "delta_net": _money(d_net),
+        "delta_total_sales": _money(d_total_sales),
         "delta_promo_discount": _money(d_promo),
         "delta_payout": _money(d_payout),
         "delta_contribution": _money(d_contribution),
+        "delta_labour_cost": _money(d_labour),
+        "delta_contribution_after_labour": _money(d_contribution_after_labour),
         "payout_per_extra_pound_of_net": round(payout_per_extra_net, 3),
         "food_cost_rate_used": food_cost_rate,
         "verdict": verdict,
@@ -138,9 +180,18 @@ def render_text(periods, comparison):
         lines.append(f"  Promo discount             £{p['promo_discount']:,.2f}  ({p['promo_discount_pct_of_gross']}% of gross)")
         lines.append(f"  Royalty incl VAT           £{p['royalty_incl_vat']:,.2f}")
         lines.append(f"  Ads incl VAT               £{p['ads_incl_vat']:,.2f}  ({p['ads_source']})")
-        lines.append(f"  PAYOUT                      £{p['payout']:,.2f}  ({p['payout_pct_of_net']}% of net)")
-        lines.append(f"  Food cost (est)            £{p['food_cost']:,.2f}")
-        lines.append(f"  Contribution               £{p['contribution']:,.2f}")
+        lines.append(f"  PAYOUT (delivery)           £{p['payout']:,.2f}  ({p['payout_pct_of_net']}% of net)")
+        lines.append(f"  Food cost on delivery      £{p['food_cost']:,.2f}")
+        lines.append(f"  Delivery contribution      £{p['contribution']:,.2f}")
+        if p["in_store_sales"]:
+            lines.append(f"  In-store sales (inc VAT)   £{p['in_store_sales']:,.2f}")
+            lines.append(f"  In-store contribution      £{p['in_store_contribution']:,.2f}")
+            lines.append(f"  Total sales (inc VAT)      £{p['total_sales']:,.2f}")
+        if p["labour_cost"]:
+            hrs = f"{p['labour_hours']:g} hrs" if p["labour_hours"] is not None else "n/a"
+            lines.append(f"  Contribution pre-labour    £{p['contribution_before_labour']:,.2f}")
+            lines.append(f"  Labour ({hrs})         £{p['labour_cost']:,.2f}  ({p['labour_pct_of_sales']}% of total sales)")
+            lines.append(f"  CONTRIBUTION after labour  £{p['contribution_after_labour']:,.2f}")
 
     if comparison:
         lines.append("")
@@ -149,9 +200,12 @@ def render_text(periods, comparison):
         lines.append(f"  {comparison['baseline']}  ->  {comparison['test']}")
         lines.append(f"  Change in gross sales      £{comparison['delta_gross']:,.2f}")
         lines.append(f"  Change in net sales        £{comparison['delta_net']:,.2f}")
+        lines.append(f"  Change in total sales      £{comparison['delta_total_sales']:,.2f}")
         lines.append(f"  Change in promo discount   £{comparison['delta_promo_discount']:,.2f}")
         lines.append(f"  Change in payout           £{comparison['delta_payout']:,.2f}")
-        lines.append(f"  Change in contribution     £{comparison['delta_contribution']:,.2f}")
+        lines.append(f"  Change in delivery contrib £{comparison['delta_contribution']:,.2f}")
+        lines.append(f"  Change in labour cost      £{comparison['delta_labour_cost']:,.2f}")
+        lines.append(f"  Change in contrib aft lab  £{comparison['delta_contribution_after_labour']:,.2f}")
         lines.append(f"  Payout per extra £1 net    £{comparison['payout_per_extra_pound_of_net']:,.3f}")
         lines.append("")
         lines.append(f"  VERDICT: {comparison['verdict']}")

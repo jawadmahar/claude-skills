@@ -33,6 +33,9 @@ For each trading period, gather:
 - Gross sales and Net sales (from the platform "Business performance" screen).
 - Ad spend (ex VAT) if known. If not, supply the **actual bank payout** and the
   tool will reverse-engineer ad spend.
+- Optional: `in_store_inc_vat` (EPOS sales, inc VAT after discount) and labour
+  (`labour_hours` + `labour_rate`, or a direct `labour_cost`) to extend the
+  model to a full-business contribution after labour.
 - Optional overrides: royalty rate (default 30%), VAT (20%), food cost (33%).
 
 To compare promotion levels, collect **two** periods: a lighter-promo baseline
