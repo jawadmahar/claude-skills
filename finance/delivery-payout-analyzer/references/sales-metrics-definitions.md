@@ -92,22 +92,20 @@ using `food_cost_from_statement.py`:
   lines, i.e. COGS): £6,207
 - **Total COGS: £33,051**
 
-Net sales (denominator) measured BEFORE platform commission, using actual data
-where available:
+Net sales (denominator) measured BEFORE platform commission, all actual:
 
 | Channel | Net sales | Source |
 |---------|----------:|--------|
-| Delivery (Uber+Deliveroo+Just Eat) | £84,780 | payouts £41,542 grossed up at blended 49% (estimate) |
+| Delivery (Uber+Deliveroo+Just Eat) | £74,858 | dashboard net £71,115 (Uber+Deliveroo, 95%) + Just Eat 5% |
 | In-store counter | £21,180 | EPOS export (actual) |
 | Kiosk (App4Food) | £4,411 | App4 dashboard (actual) |
-| **Total net sales** | **£110,371** | |
+| **Total net sales** | **£100,449** | |
 
-- **Food cost: ~30% of net sales** (29.9%). The earlier 33% was conservative; it
-  used a reconstructed in-store figure (£14,076) that undercounted the actual
-  EPOS counter sales (£21,180).
-- Only the delivery leg is still estimated (49% gross-up). Sensitivity: at a 55%
-  payout/net ratio food cost rises to ~33%. A real delivery net-sales total would
-  lock it exactly.
+- **Food cost: 32.9% of net sales** - confirms the 33% working figure, now on a
+  fully actual basis (actual COGS, in-store, kiosk and delivery net sales).
+- The earlier intermediate 29.9% was wrong because delivery net was over-estimated
+  by grossing payouts at 49%; the real delivery payout/net ratio is ~55%, so the
+  store keeps more per delivery £ but delivery net sales are lower.
 
 Caveats: purchases not consumption (stock timing); food cost % measured on net
 sales BEFORE commission (the correct basis - commission is a separate cost line);
