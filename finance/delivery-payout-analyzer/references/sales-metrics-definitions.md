@@ -98,6 +98,27 @@ Caveats: purchases not consumption (stock timing), reconstructed sales (delivery
 payouts grossed up at ~49% + in-store sweeps + own-app), and mixed VAT rating on
 food. For an exact figure, feed real EPOS + platform net sales via `--sales`.
 
+## VAT and the true platform cost
+
+The platform withholds ~51% of delivery net sales before paying out, but that is
+not all cost. It breaks down as:
+
+- 30% commission + 7% ads = **37% real cost**
+- ~14% VAT on those charges, which is **reclaimable input VAT** (it comes back on
+  the VAT return)
+
+So for profitability the platform's real bite is **37%**, and the economic
+"share kept" on delivery is **~63% of net sales**, not the 49% cash payout.
+Comparisons in `channel_economics.py` are therefore made on a net-sales basis
+with VAT assumed to net out (input VAT on fees and purchases recovered against
+output VAT on sales). Labour is ~30% of net sales, fully loaded (employer NI +
+pension).
+
+Reconciliation note: 30% + 7% + VAT at 20% would be ~44% withheld (56% payout),
+but the sampled weeks paid out ~49% - implying ads nearer 12-13% in those weeks
+(they were promotion/ad-heavy) or extra fees. If 7% ads is the true steady-state,
+delivery economics are slightly better than modelled here.
+
 ## Reading the promotion verdict
 
 The comparison answers "are we better off with heavier promotions?" by looking

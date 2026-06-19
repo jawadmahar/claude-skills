@@ -1,8 +1,8 @@
 {
-  "_comment": "UFO Food Ltd weekly averages from the 1-7 & 8-14 Jun EPOS sample. Labour 227 hrs avg @ £10/hr FULLY LOADED (inc employer NI + pension). Delivery net already reflects a 15-20% menu price premium over counter. payout_rate: delivery 0.49 (after commission+ads); in-store/kiosk 1.0; own-app 0.90.",
-  "labour_per_week": 2270,
+  "_comment": "UFO Food Ltd weekly averages from the 1-7 & 8-14 Jun EPOS sample. Labour ~30% of net sales, FULLY LOADED (inc employer NI + pension). VAT treated as reclaimable and netting out, so costs are compared to net sales. Delivery real platform cost = 30% commission + 7% ads = 37% (the further ~14% the platform withholds is reclaimable VAT), so payout_rate (economic share kept) = 0.63. Delivery net already reflects a 15-20% menu price premium over counter. In-store/kiosk 1.0; own-app 0.90.",
+  "labour_per_week": 2387.81,
   "channels": [
-    { "name": "Delivery (Uber+Deliveroo)", "net_per_week": 5639.50, "payout_rate": 0.49, "food_cost_rate": 0.33 },
+    { "name": "Delivery (Uber+Deliveroo)", "net_per_week": 5639.50, "payout_rate": 0.63, "food_cost_rate": 0.33 },
     { "name": "In-store (counter)",        "net_per_week": 1799.36, "payout_rate": 1.00, "food_cost_rate": 0.33 },
     { "name": "Kiosk",                      "net_per_week": 353.50,  "payout_rate": 1.00, "food_cost_rate": 0.33 },
     { "name": "Own-app (App4)",             "net_per_week": 167.00,  "payout_rate": 0.90, "food_cost_rate": 0.33 }
