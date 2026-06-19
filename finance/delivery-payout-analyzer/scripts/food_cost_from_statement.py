@@ -26,8 +26,10 @@ from collections import defaultdict
 # --- Classification keyword groups (counterparty / reference, case-insensitive) ---
 FOOD = ["BRAKE BROS", "3663", "DANBURY OILS", "KOREAFOODS", "ITAEWON",
         "TUK TUK MART", "EOE COOP FOOD", "TESCO STORES", "ICELAND", "BIDFOOD", "BOOKER"]
-PACKAGING = ["AMAZON", "AMZN", "POUNDLAND"]            # mixed consumables/packaging
-UNCERTAIN = ["WRAPSWINGS.STORE"]                       # large, ambiguous - confirm with owner
+# WRAPSWINGS.STORE = nominated-supplier portal: branded packaging + nominated
+# food lines, so it is cost of goods (food + packaging mix).
+PACKAGING = ["AMAZON", "AMZN", "POUNDLAND", "WRAPSWINGS.STORE"]   # consumables / COGS
+UNCERTAIN = []                                         # none currently
 DELIVERY_SALES = ["UBER", "DELIVEROO", "JET "]         # platform payouts (credits)
 OWNAPP_SALES = ["APP4"]                                # own-app order payouts
 INSTORE_IN = ["UFO FOOD LTD"]                          # internal sweep of in-store/kiosk takings

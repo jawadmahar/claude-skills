@@ -80,6 +80,24 @@ kiosk sales added separately (same 67% contribution, no commission).
 > delivery but lost higher-margin in-store and kiosk sales (apparent
 > cannibalisation), leaving it worse off after labour - see "Reading the verdict".
 
+## Food cost validation (bank statement, 19 Mar - 18 Jun 2026)
+
+The 33% food cost assumption was checked against ~3 months of UFO Food bank data
+using `food_cost_from_statement.py`:
+
+- Ingredients (Bidfood/3663 £16,052, Brakes £9,328, Danbury Oils, Korea Foods,
+  Tuk Tuk Mart, Tesco/Iceland): £26,057
+- Packaging / consumables (Amazon): £787
+- wrapswings.store nominated-supplier portal (branded packaging + nominated food
+  lines, i.e. COGS): £6,207
+- **Total COGS: £33,051**
+- Net sales (reconstructed): ~£101,027
+- **Food cost: ~33% of net sales** - confirms the 33% assumption.
+
+Caveats: purchases not consumption (stock timing), reconstructed sales (delivery
+payouts grossed up at ~49% + in-store sweeps + own-app), and mixed VAT rating on
+food. For an exact figure, feed real EPOS + platform net sales via `--sales`.
+
 ## Reading the promotion verdict
 
 The comparison answers "are we better off with heavier promotions?" by looking
