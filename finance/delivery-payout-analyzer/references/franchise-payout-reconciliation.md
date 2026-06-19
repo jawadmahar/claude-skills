@@ -21,21 +21,27 @@ W&W receives the remainder -> **W&W takes royalty + VAT** -> store payout.
 W&W franchise royalty is consistently **~4.6-4.9% of net + 20% VAT** - small and
 contractual, NOT the 30% sometimes assumed for "royalty".
 
-## Full decomposition - Uber, 01-07 Jun (ad spend known = £132.95)
+## Full decomposition - Uber, 01-07 Jun (commission 25% contracted, ad spend known = £132.95)
 
 | Layer | Amount | % of net | Reclaimable? |
 |-------|-------:|---------:|--------------|
 | Net sales | 2,202.09 | 100% | - |
-| Uber commission (~) | 604.66 | 27.5% | no (real cost) |
+| Uber commission (contracted 25%) | 550.52 | 25.0% | no (real cost) |
 | Uber ads | 132.95 | 6.0% | no (real cost) |
+| **Other Uber fees (unexplained)** | 54.14 | 2.5% | no - query this |
 | Uber VAT | 147.52 | 6.7% | **yes - reclaimed** |
 | W&W royalty | 101.21 | 4.6% | no (real cost) |
 | W&W VAT | 20.24 | 0.9% | **yes - reclaimed** |
 | **Store payout** | **1,195.51** | **54.3%** | - |
 
-- Real cost (ex reclaimable VAT): **38.1% of net** - close to the "37%" assumption
-  once the franchise royalty is included alongside commission + ads.
-- Reclaimable VAT: **7.6% of net** - comes back on the VAT return, so not a true loss.
+Commission is contracted at **25%** (Uber and Deliveroo). With that fixed, the
+implied Uber take still runs **37-40% of net**, so beyond 25% commission + ~6% ads
+there is a residual of roughly **2.5-3% of net (~£55-145/week) in unexplained
+"other" Uber fees** plus reclaimable VAT. That residual is the line to itemise
+with the platform/franchisor.
+
+- Real cost (ex reclaimable VAT): ~37-38% of net.
+- Reclaimable VAT: ~7.6% of net - returns on the VAT return, not a true loss.
 
 ## Where the money goes (answering "where is the 14% leaking?")
 
