@@ -115,9 +115,28 @@ output VAT on sales). Labour is ~30% of net sales, fully loaded (employer NI +
 pension).
 
 Reconciliation note: 30% + 7% + VAT at 20% would be ~44% withheld (56% payout),
-but the sampled weeks paid out ~49% - implying ads nearer 12-13% in those weeks
-(they were promotion/ad-heavy) or extra fees. If 7% ads is the true steady-state,
-delivery economics are slightly better than modelled here.
+but the sampled weeks paid out ~49%. Actual ad-spend dashboards (below) confirm
+ads were ~7%, so the extra payout gap is OTHER platform deductions (merchant-funded
+Deliveroo promos / fees), not ads.
+
+## Actual ad spend (from platform dashboards)
+
+| Platform | Period | Ad spend | Ad sales | ROAS |
+|----------|--------|----------|----------|------|
+| Deliveroo | wk 8-14 Jun | £352.20 | £766.56 | 2.18x |
+| Deliveroo | 30 days (20 May-18 Jun) | £652.66 | £1,280.90 | 1.96x |
+| Uber Eats | wk 1-7 Jun | £132.95 | £1,246.64 | 9.38x |
+| Uber Eats | wk 8-14 Jun | ~£134 | £1,254.64 | 9.36x |
+
+Combined ad spend was ~£486 in the heavy-promo week (8-14 Jun) on £6,394 delivery
+net = **7.6%**, and ~£228-283 in a lighter week = ~5-6%. This **confirms the ~7%
+ad assumption**.
+
+Channel insight: **Uber ads return ~9.4x, Deliveroo ads only ~2.0x.** A £1 Deliveroo
+ad drives ~£2 of sales worth only ~£0.74 contribution before the ad cost itself
+(30% commission + 33% food removed), so Deliveroo ads lose money before labour.
+Uber also funds its 30% menu offers itself ("30% funded by Uber"). So Uber is the
+stronger delivery channel: keep/grow Uber ads, cut Deliveroo ad spend, push own-app.
 
 ## Reading the promotion verdict
 
