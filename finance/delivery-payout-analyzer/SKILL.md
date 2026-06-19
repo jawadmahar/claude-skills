@@ -78,5 +78,6 @@ track several cycles before fixing strategy.
 ## Files
 
 - `scripts/payout_calculator.py` - payout + promotion comparison (stdlib only, `--help`, `--format json`).
+- `scripts/food_cost_from_statement.py` - estimate food cost % from a bank statement CSV/TSV by classifying suppliers (`--sales`, `--grossup`, `--include-uncertain`, `--format json`).
 - `references/sales-metrics-definitions.md` - metric definitions and worked example.
 - `assets/example_input.json` - UFO Food June 2026 two-week comparison.
