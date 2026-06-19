@@ -91,12 +91,27 @@ using `food_cost_from_statement.py`:
 - wrapswings.store nominated-supplier portal (branded packaging + nominated food
   lines, i.e. COGS): £6,207
 - **Total COGS: £33,051**
-- Net sales (reconstructed): ~£101,027
-- **Food cost: ~33% of net sales** - confirms the 33% assumption.
 
-Caveats: purchases not consumption (stock timing), reconstructed sales (delivery
-payouts grossed up at ~49% + in-store sweeps + own-app), and mixed VAT rating on
-food. For an exact figure, feed real EPOS + platform net sales via `--sales`.
+Net sales (denominator) measured BEFORE platform commission, using actual data
+where available:
+
+| Channel | Net sales | Source |
+|---------|----------:|--------|
+| Delivery (Uber+Deliveroo+Just Eat) | £84,780 | payouts £41,542 grossed up at blended 49% (estimate) |
+| In-store counter | £21,180 | EPOS export (actual) |
+| Kiosk (App4Food) | £4,411 | App4 dashboard (actual) |
+| **Total net sales** | **£110,371** | |
+
+- **Food cost: ~30% of net sales** (29.9%). The earlier 33% was conservative; it
+  used a reconstructed in-store figure (£14,076) that undercounted the actual
+  EPOS counter sales (£21,180).
+- Only the delivery leg is still estimated (49% gross-up). Sensitivity: at a 55%
+  payout/net ratio food cost rises to ~33%. A real delivery net-sales total would
+  lock it exactly.
+
+Caveats: purchases not consumption (stock timing); food cost % measured on net
+sales BEFORE commission (the correct basis - commission is a separate cost line);
+mixed VAT rating on food.
 
 ## VAT and the true platform cost
 
