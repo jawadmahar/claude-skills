@@ -20,5 +20,6 @@
 |---|---|---|
 | iwoca | support@iwoca.co.uk (opt out of emails and letters); DPO dpo@iwoca.co.uk | Asks for full name, business name, postal address, email. Phone 020 3397 3375. |
 | Funding Circle (UK) | dataprotection@fundingcircle.com (DPO) | Postal: 71 Queen Victoria Street, London EC4V 4AY, FAO Data Protection Officer. |
+| Booker (Booker Limited / Booker Group) | DPO@booker.co.uk (DPO); DSAR@booker.co.uk for subject access | Postal: Head of Data Privacy & Risk, Equity House, Irthlingborough Road, Wellingborough, Northants NN8 1LT. Phone 01933 371000. Quote the envelope mailing reference. |
 
 Add new senders here as you encounter them.
