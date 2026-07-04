@@ -1,0 +1,20 @@
+{
+  "brand": "explorazone",
+  "campaign": "summer-holidays-b2g3",
+  "sizes": ["1080x1080", "1080x1920"],
+  "variants_per_concept": 5,
+  "concepts": [
+    {
+      "hook": "Two tickets, one price - this summer only",
+      "visual": "a family exploring a giant glowing planet exhibit, seen from behind, sense of awe"
+    },
+    {
+      "hook": "Beat the heat. Feed their brains.",
+      "visual": "children's hands on a bubbling interactive science exhibit in a cool, dark gallery"
+    },
+    {
+      "hook": "Grandparents go half price",
+      "visual": "grandparent and child silhouettes in front of a huge illuminated science display"
+    }
+  ]
+}
