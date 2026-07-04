@@ -24,9 +24,46 @@ from datetime import datetime, timedelta, timezone
 BASE = "https://services.leadconnectorhq.com"
 API_VERSION = "2021-07-28"
 
+# ---------------------------------------------------------------------------
+# GUARDRAILS (see references/guardrails.md for the full policy)
+#
+# 1. This client physically cannot delete anything: only GET and POST are
+#    implemented, DELETE/PUT/PATCH are refused at the transport layer.
+# 2. Only the endpoints on the allowlist below can be called at all.
+# 3. All write operations additionally require GHL_ALLOW_WRITE=1 in the
+#    environment. Without it the client is read-only.
+# ---------------------------------------------------------------------------
+ALLOWED_METHODS = ("GET", "POST")
+ENDPOINT_ALLOWLIST = (
+    "/contacts/search",          # read: segment contacts
+    "/contacts/",                # write: tags, workflow enrolment (POST only)
+    "/conversations/messages",   # write: send email
+)
+WRITE_MARKERS = ("/tags", "/workflow/", "/conversations/messages")
+
 
 class GHLError(RuntimeError):
     pass
+
+
+def _check_guardrails(method, path):
+    if method not in ALLOWED_METHODS:
+        raise GHLError(
+            f"BLOCKED: HTTP {method} is not permitted by this client. "
+            "Deletion and mutation of existing GHL records are deliberately "
+            "impossible here - do those in the GHL UI where its own "
+            "type-DELETE-to-confirm protections apply.")
+    if not any(path.startswith(p) for p in ENDPOINT_ALLOWLIST):
+        raise GHLError(
+            f"BLOCKED: endpoint {path} is not on the allowlist. "
+            "Extend ENDPOINT_ALLOWLIST deliberately (with review) if a new "
+            "operation is genuinely needed.")
+    is_write = any(m in path for m in WRITE_MARKERS)
+    if is_write and os.environ.get("GHL_ALLOW_WRITE") != "1":
+        raise GHLError(
+            "BLOCKED: write operation attempted but GHL_ALLOW_WRITE is not "
+            "set. The client is read-only by default; export GHL_ALLOW_WRITE=1 "
+            "for a session where sending/tagging is intended.")
 
 
 class GHLClient:
@@ -39,6 +76,7 @@ class GHLClient:
                 "See references/ghl-setup.md for how to create a Private Integration Token.")
 
     def _request(self, method, path, params=None, body=None, retries=3):
+        _check_guardrails(method, path)
         url = BASE + path
         if params:
             url += "?" + urllib.parse.urlencode(params, doseq=True)

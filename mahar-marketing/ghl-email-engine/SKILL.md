@@ -60,10 +60,12 @@ GHL tracks opens/clicks/replies natively (Marketing > Emails > Statistics). Pair
 
 ## Safety rails (enforced by the scripts)
 
-- `--dry-run` renders everything and sends nothing; live sends require `--yes` or an interactive confirm.
-- Hard cap of 500 recipients per invocation (`--max-recipients` to lower it); larger sends should be GHL Workflows.
-- Contacts with `dnd` (do not disturb) or missing email are always skipped and reported.
-- Every send is logged to `send-log.jsonl` next to the sequence file (who, what, when).
+Four guardrail layers - full policy in `references/guardrails.md`:
+
+1. **Token scopes**: the PIT has no delete/settings/pipeline scopes; one token per entity sub-account.
+2. **Transport blocklist**: the client only speaks GET/POST to an endpoint allowlist. Deleting or mutating existing GHL records is not expressible in this code, so "delete all contacts" cannot happen even by accident.
+3. **Read-only by default**: sending/tagging requires `GHL_ALLOW_WRITE=1` in the environment.
+4. **Operational rails**: mandatory segment filter (never the whole list), `--dry-run`, typed `SEND` confirmation or `--yes`, 500-recipient cap, DND/no-email skips, append-only `send-log.jsonl` audit trail.
 
 ## Files
 
