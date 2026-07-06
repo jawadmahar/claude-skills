@@ -1,0 +1,64 @@
+{
+  "name": "evergreen-welcome",
+  "description": "4-email nurture for brand-new leads. Day 0 instant, then day 2, 5, 10. Install as a GHL Workflow for automation, or send individual steps with send_campaign.py.",
+  "entities": {
+    "stemex": {
+      "brand_name": "STEM Centre",
+      "from_name": "The STEM Centre Team",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "offer": "your first workshop",
+      "booking_url": "https://REPLACE-booking-link",
+      "location_line": "STEM Centre, Norwich"
+    },
+    "explorazone": {
+      "brand_name": "Explorazone",
+      "from_name": "Explorazone",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "offer": "your visit",
+      "booking_url": "https://REPLACE-booking-link",
+      "location_line": "Explorazone, Bowthorpe, Norwich"
+    },
+    "muffin_break": {
+      "brand_name": "Muffin Break Norwich",
+      "from_name": "Muffin Break Norwich",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "offer": "your voucher",
+      "booking_url": "https://REPLACE-offer-link",
+      "location_line": "Muffin Break, Norwich"
+    },
+    "cafe_ufo": {
+      "brand_name": "Cafe UFO",
+      "from_name": "Cafe UFO",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "offer": "your order",
+      "booking_url": "https://REPLACE-order-link",
+      "location_line": "Cafe UFO, Norwich"
+    }
+  },
+  "emails": [
+    {
+      "label": "day-0-instant-welcome",
+      "delay_days": 0,
+      "subject": "You're in, {{contact.first_name}} - here's {{entity.offer}}",
+      "html": "<p>Hi {{contact.first_name}},</p><p>Thanks for your interest in {{entity.brand_name}}. Here is everything you need to claim {{entity.offer}}:</p><p><a href=\"{{entity.booking_url}}\">Claim it here</a></p><p>Any questions, just reply to this email - a real person reads these.</p><p>{{entity.location_line}}</p>"
+    },
+    {
+      "label": "day-2-social-proof",
+      "delay_days": 2,
+      "subject": "What families say about {{entity.brand_name}}",
+      "html": "<p>Hi {{contact.first_name}},</p><p>Still thinking it over? Here is what recent visitors told us about {{entity.brand_name}}:</p><p><em>[INSERT 2-3 real short reviews - keep them specific]</em></p><p><a href=\"{{entity.booking_url}}\">Ready when you are</a></p>"
+    },
+    {
+      "label": "day-5-objection-handler",
+      "delay_days": 5,
+      "subject": "The 3 questions everyone asks us",
+      "html": "<p>Hi {{contact.first_name}},</p><p>The three things people ask before their first visit to {{entity.brand_name}}:</p><ol><li><strong>[Common question 1]</strong> - [short answer]</li><li><strong>[Common question 2]</strong> - [short answer]</li><li><strong>[Common question 3]</strong> - [short answer]</li></ol><p><a href=\"{{entity.booking_url}}\">Book here</a> - or reply and ask us anything else.</p>"
+    },
+    {
+      "label": "day-10-gentle-deadline",
+      "delay_days": 10,
+      "subject": "Last nudge, {{contact.first_name}} (then we'll leave you be)",
+      "html": "<p>Hi {{contact.first_name}},</p><p>This is our last email about {{entity.offer}} - we don't believe in pestering. If the timing isn't right, no problem at all.</p><p>If you do want it, it's one click: <a href=\"{{entity.booking_url}}\">claim {{entity.offer}}</a>.</p><p>Either way, thanks for considering {{entity.brand_name}}.</p>"
+    }
+  ]
+}

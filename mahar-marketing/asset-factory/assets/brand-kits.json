@@ -1,0 +1,58 @@
+{
+  "stemex": {
+    "display_name": "STEM Centre (STEMEX)",
+    "descriptor": "a children's STEM education centre in Norwich offering workshops, Short Breaks and Alternative Provision",
+    "style": "bright, optimistic, educational; clean modern illustration or vivid photography of hands-on science; energetic but trustworthy - parents are the buyer, children are the user",
+    "palette": ["deep blue #1B3A6B", "vibrant orange #F58220", "white", "accent teal"],
+    "variant_angles": [
+      "close-up of hands doing an experiment",
+      "wide shot of a busy workshop table",
+      "single hero object (robot, circuit, volcano model) on clean background",
+      "parent-and-child moment, faces not identifiable",
+      "flat-lay of STEM kit components"
+    ],
+    "constraints": "Children shown from behind or illustrated only, never identifiable faces. No safety hazards visible (goggles on where relevant)."
+  },
+  "muffin_break": {
+    "display_name": "Muffin Break Norwich",
+    "descriptor": "a warm, family-friendly bakery cafe in Norwich (Foodco franchise)",
+    "style": "warm, appetising food photography; natural light, shallow depth of field; cosy cafe atmosphere; convenience and freshness over discounting",
+    "palette": ["warm brown #6B4226", "cream", "muffin-golden yellow", "soft red accent"],
+    "variant_angles": [
+      "hero close-up of the product with steam or texture detail",
+      "product in hand at the counter, motion and convenience",
+      "flat-lay of coffee plus bake combination",
+      "barista handing over order with a smile, face partially out of frame",
+      "seasonal tabletop scene"
+    ],
+    "constraints": "Food must look real and freshly made, never plastic or oversaturated. Follow franchise brand guidelines for logo use; when in doubt omit the logo."
+  },
+  "cafe_ufo": {
+    "display_name": "Cafe UFO / Wraps and Wings",
+    "descriptor": "a cafe and dark kitchen in Norwich serving wraps, wings and comfort food for delivery and collection",
+    "style": "bold, punchy, street-food energy; high contrast; appetite appeal first; speed and convenience messaging (the 'skip the rush' convenience angle outperforms discounts)",
+    "palette": ["black", "electric purple #7B2FBE", "neon green accent", "white"],
+    "variant_angles": [
+      "dramatic close-up, sauce pull or crunch moment",
+      "boxed order ready for delivery, top-down",
+      "neon-lit product hero on dark background",
+      "hands grabbing a wrap, urban energy",
+      "menu trio lineup"
+    ],
+    "constraints": "Halal-friendly presentation; no alcohol in frame. Delivery packaging should look branded and tidy."
+  },
+  "explorazone": {
+    "display_name": "Explorazone",
+    "descriptor": "an interactive science discovery centre in Bowthorpe, Norwich (rebranded 2026, formerly Exploring Sciences)",
+    "style": "wonder and discovery; vivid colour, dramatic lighting on exhibits; family day-out energy; big visual scale contrast (small child, big exhibit)",
+    "palette": ["cosmic purple #4B2E83", "bright cyan #00B5E2", "magenta accent", "white"],
+    "variant_angles": [
+      "child silhouette dwarfed by a glowing exhibit",
+      "close-up of hands on an interactive exhibit",
+      "family group from behind, immersed in an exhibit hall",
+      "single spectacular exhibit as hero on dark background",
+      "ticket-offer graphic with exhibit photo background"
+    ],
+    "constraints": "Brand name is exactly 'Explorazone' - one word, capital E - never 'Exploring Sciences', 'Science Museum' or any other variant. Children from behind or illustrated only."
+  }
+}

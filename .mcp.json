@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "ghl-stemex": {
+      "type": "http",
+      "url": "https://services.leadconnectorhq.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GHL_STEMEX_TOKEN}",
+        "locationId": "iK2WCtWGIj4KWsh9FS1M"
+      }
+    },
+    "ghl-explorazone": {
+      "type": "http",
+      "url": "https://services.leadconnectorhq.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GHL_EXPLORAZONE_TOKEN}",
+        "locationId": "rynblUDBlwAbVN8z1qzu"
+      }
+    },
+    "ghl-muffin-break": {
+      "type": "http",
+      "url": "https://services.leadconnectorhq.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GHL_MUFFINBREAK_TOKEN}",
+        "locationId": "vMWZ7iAE0TEBsGZ7RQqw"
+      }
+    },
+    "ghl-cafe-ufo": {
+      "type": "http",
+      "url": "https://services.leadconnectorhq.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GHL_CAFEUFO_TOKEN}",
+        "locationId": "nCGvQlng3ExpeU591yO0"
+      }
+    }
+  }
+}

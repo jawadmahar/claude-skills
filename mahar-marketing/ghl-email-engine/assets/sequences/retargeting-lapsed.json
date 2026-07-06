@@ -1,0 +1,58 @@
+{
+  "name": "retargeting-lapsed",
+  "description": "3-email win-back for contacts inactive 45+ days. Send email 1, wait 4 days, email 2, wait 5 days, email 3. Tag responders so they exit the sequence.",
+  "entities": {
+    "stemex": {
+      "brand_name": "STEM Centre",
+      "from_name": "The STEM Centre Team",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "comeback_offer": "a returning-family discount on your next workshop",
+      "booking_url": "https://REPLACE-booking-link",
+      "whats_new": "new term-time workshops and holiday clubs"
+    },
+    "explorazone": {
+      "brand_name": "Explorazone",
+      "from_name": "Explorazone",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "comeback_offer": "a welcome-back ticket offer",
+      "booking_url": "https://REPLACE-booking-link",
+      "whats_new": "brand-new exhibits since the Explorazone relaunch"
+    },
+    "muffin_break": {
+      "brand_name": "Muffin Break Norwich",
+      "from_name": "Muffin Break Norwich",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "comeback_offer": "a free hot drink with your next bake",
+      "booking_url": "https://REPLACE-offer-link",
+      "whats_new": "our new seasonal menu"
+    },
+    "cafe_ufo": {
+      "brand_name": "Cafe UFO",
+      "from_name": "Cafe UFO",
+      "from_email": "hello@REPLACE-WITH-YOUR-DOMAIN.co.uk",
+      "comeback_offer": "money off your next order",
+      "booking_url": "https://REPLACE-order-link",
+      "whats_new": "new items on the Wraps and Wings menu"
+    }
+  },
+  "emails": [
+    {
+      "label": "winback-1-we-miss-you",
+      "delay_days": 0,
+      "subject": "It's been a while, {{contact.first_name}}",
+      "html": "<p>Hi {{contact.first_name}},</p><p>We noticed it's been a while since your last visit to {{entity.brand_name}} - so here's {{entity.comeback_offer}}.</p><p><a href=\"{{entity.booking_url}}\">Claim it here</a></p><p>Since you were last in, we've added {{entity.whats_new}}.</p>"
+    },
+    {
+      "label": "winback-2-whats-new",
+      "delay_days": 4,
+      "subject": "Here's what you've missed at {{entity.brand_name}}",
+      "html": "<p>Hi {{contact.first_name}},</p><p>Quick one - {{entity.whats_new}} landed recently and it's been popular. Your {{entity.comeback_offer}} is still waiting:</p><p><a href=\"{{entity.booking_url}}\">Use it here</a></p>"
+    },
+    {
+      "label": "winback-3-expiry",
+      "delay_days": 9,
+      "subject": "Your offer expires this week, {{contact.first_name}}",
+      "html": "<p>Hi {{contact.first_name}},</p><p>Last reminder - {{entity.comeback_offer}} expires at the end of this week. After that we'll stop emailing about it.</p><p><a href=\"{{entity.booking_url}}\">Claim before it goes</a></p><p>Hope to see you again soon,<br>{{entity.brand_name}}</p>"
+    }
+  ]
+}
